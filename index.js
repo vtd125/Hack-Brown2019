@@ -3,7 +3,11 @@ const app = express();
 const Joi = require('joi')
 var bodyParser = require('body-parser')
 
+
 app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 const port = process.env.PORT || 3000
 
 const symptoms = [
@@ -12,9 +16,8 @@ const symptoms = [
     {id: 3, name: 'happiness'},
 ];
 
-// 1. change the chat room we are sent to via post request body
-// 2. edit the user name
-// 3. 
+// 1. edit the user name
+// 2. 
 
 app.get('/', (req, res) => {
     // route handler or callback function
@@ -35,9 +38,7 @@ app.get('/api/chat', (req, res) => {
 app.post('/api/chat', (req, res) => {
     console.log(req)
     const name = req.body.name;
-    // openChat(message_content);
     var group_name = name + "_chat.html"
-    // res.send(group_name);
     res.sendFile(group_name, {root: __dirname })
 })
 
