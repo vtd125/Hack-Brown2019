@@ -2,6 +2,7 @@ const express = require('express')
 const app = express();
 const Joi = require('joi')
 var bodyParser = require('body-parser')
+const info = require("./helper");
 
 
 app.use(express.json());
@@ -31,42 +32,14 @@ app.get('/api/home', (req, res) => {
 
 app.get('/api/chat', (req, res) => {
     res.sendFile('anxiety_chat.html', {root: __dirname })
-    // openChat("hello")
-    // res.send("Sent a message.");
 })
 
 app.post('/api/chat', (req, res) => {
-    console.log(req)
     const name = req.body.name;
     var group_name = name + "_chat.html"
+    // var group_name = info.group_name + "_chat.html"
     res.sendFile(group_name, {root: __dirname })
 })
 
-function openChat(message){
-
-    
-}
-
-
-// app.post('/api/home', (req, res) => {
-//     const { error } = validateInput(req.body);
-
-//     if (error) return res.status(400).send(error.details[0].message);
-
-//     const symptom = {
-//         id: symptoms.length + 1,
-//         name: req.body.name
-//     };
-    
-//     courses.push(course);
-//     res.send(course);
-// })
-
-// function validateInput(input){
-//     const schema = {
-//         name: Joi.string().min(3).required()
-//     }
-//     return Joi.validate(input, schema);
-// }
 
 app.listen(port, () => console.log(`App listening on port ${port}!`));
