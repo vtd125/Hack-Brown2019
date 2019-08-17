@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+
     </head>
     <body>
         <h1>Hi there.</h1>
@@ -10,7 +10,7 @@
                 <!--  -->
             <!-- <a href="/api/chat"> <button>   click me  </button> </a> -->
             <form id="myForm" action="/api/chat" method="post">
-                
+
                 <!-- Enter a nickname:<br>
                 <input id="nickname" type="text" name="name">
                 <br> -->
@@ -18,18 +18,17 @@
                 <input id="group_name" type="text" name="name">
                 <br>
                 <input id="submit-button" type="submit" value="Submit">
-              </form> 
-              
-              
+              </form>
+
+
 
         </div>
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="helper.js"></script>
     <script src="index.js"></script>
-    <script> 
-            // wait for the DOM to be loaded 
-            $(document).ready(function() { 
+    <script>
+            // wait for the DOM to be loaded
+            $(document).ready(function() {
                 $('myForm').submit(function (evt) {
 					evt.preventDefault();
 
@@ -46,7 +45,7 @@
 						console.error(err);
 					})
 				})
-            }); 
-        </script> 
+            });
+        </script>
 
 </html>
